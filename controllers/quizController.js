@@ -32,7 +32,7 @@ module.exports = {
 }
 
 
-function makeQuiz() {
+function makeQuiz(req, res) {
     var requested = 0;
     var translatedWords = [];
 
@@ -61,6 +61,7 @@ function makeQuiz() {
             if (requested === 10) {
               var quizzy = new quiz(translatedWords)
               console.log(quizzy) //res.send(quizzy) here
+              res.send(quizzy)
             } else {
                 insertOne();
             }
