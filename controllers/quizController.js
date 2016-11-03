@@ -40,7 +40,7 @@ function makeQuiz() {
     function insertOne() {
         var translatedWord;
         var gtEndpoint = 'https://www.googleapis.com/language/translate/v2?key=AIzaSyCLGUGn7uSe2i1oeNaxH9Mur6TM0uJ1jh8';
-        var gtWord = wordPool.words[Math.floor(Math.random() * 10)]
+        var gtWord = wordPool.words[Math.floor(Math.random() * wordPool.words.length)]
         var gtSource = "en"
         var gtTarget = "es"
 
