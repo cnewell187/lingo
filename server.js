@@ -7,7 +7,7 @@ var mongoose = require('mongoose');
 
 var quizController = require("./controllers/quizController.js")
 
-quizController.buildQuiz()
+var testQuiz = quizController.makeQuiz()
 
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/lingo', function(err) {
@@ -18,8 +18,15 @@ mongoose.connect('mongodb://localhost/lingo', function(err) {
     }
 })
 
+
+
 var app = express();
 routes(app);
+
+app.get("/quiz", function(req, res){
+  console.log(testQuiz)
+  res.send(testQuiz)
+})
 
 var port = process.env.PORT || 4040
 app.listen(port, function(){
