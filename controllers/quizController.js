@@ -44,7 +44,7 @@ function makeQuiz() {
     var requested = 0;
     var translatedWords = [];
 
-    //ten is quiz length
+
     function insertOne() {
         var translatedWord;
         var gtEndpoint = 'https://www.googleapis.com/language/translate/v2?key=AIzaSyCLGUGn7uSe2i1oeNaxH9Mur6TM0uJ1jh8';
@@ -61,11 +61,14 @@ function makeQuiz() {
             translatedWord = JSON.parse(response.body).data.translations[0].translatedText
             translatedWords.push({
                 word: gtWord,
-                tword: translatedWord
+                tword: translatedWord,
+                correct: false,
+                lastTaken: Date.now(),
             })
             requested++;
             if (requested === 10) {
-                console.log(translatedWords)
+              var quizzy = new quiz(translatedWords)
+                console.log(quizzy)
             } else {
                 insertOne();
             }
@@ -75,4 +78,8 @@ function makeQuiz() {
     };
 
     insertOne();
+}
+
+function quiz(quizInfo){
+  this.quiz = quizInfo
 }
