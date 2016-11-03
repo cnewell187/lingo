@@ -24,18 +24,10 @@ function translateWord(baseWord) {
     });
 }
 
-function quizItem(baseWord) {
-    this.word = baseWord;
-
-
-    this.tWord = translateWord(baseWord);
-}
-
 
 
 
 module.exports = {
-    quizItem: quizItem,
     makeQuiz: makeQuiz,
 }
 
@@ -68,7 +60,7 @@ function makeQuiz() {
             requested++;
             if (requested === 10) {
               var quizzy = new quiz(translatedWords)
-                console.log(quizzy)
+              console.log(quizzy) //res.send(quizzy) here
             } else {
                 insertOne();
             }
