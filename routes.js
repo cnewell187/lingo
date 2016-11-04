@@ -6,4 +6,5 @@ module.exports = function(app){
   })
   app.get('/api/translation/:word/:sourceLang/:targetLang', transController.translateWord)
   app.get('/quiz', quizController.makeQuiz)
+  app.post('/quiz', quizController.storeQuizData)
 }

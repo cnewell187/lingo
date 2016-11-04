@@ -29,6 +29,7 @@ function translateWord(baseWord) {
 
 module.exports = {
     makeQuiz: makeQuiz,
+    storeQuizData: storeQuizData,
 }
 
 
@@ -75,4 +76,9 @@ function makeQuiz(req, res) {
 
 function quiz(quizInfo){
   this.quiz = quizInfo
+}
+
+function storeQuizData(req, res){
+  console.log("The req body: ",req.body)
+  res.send("Quiz Submitted")
 }

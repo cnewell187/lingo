@@ -19,6 +19,7 @@ mongoose.connect('mongodb://localhost/lingo', function(err) {
 
 
 var app = express();
+app.use(bodyParser.json());
 routes(app);
 
 
